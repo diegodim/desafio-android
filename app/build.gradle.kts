@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 apply("../android-common.gradle")
@@ -15,7 +16,8 @@ dependencies {
     val androidTest = Dependecies.AndroidTest
     val core = Dependecies.Modules.Core
 
-    implementation(project(core.uiKit))
+    implementation(project(core.core))
+    implementation(project(core.intent))
     testImplementation(test.jUnit)
     androidTestImplementation(androidTest.jUnit)
     androidTestImplementation(androidTest.espressoCore)

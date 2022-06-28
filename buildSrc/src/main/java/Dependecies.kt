@@ -2,6 +2,9 @@ object Dependecies {
     object Modules {
         object Core {
             const val uiKit = ":core:ui_kit"
+            const val commons = ":core:commons"
+            const val intent = ":core:intent"
+            const val core = ":core:core"
         }
     }
 
@@ -14,6 +17,12 @@ object Dependecies {
         const val composeActivity = "androidx.activity:activity-compose:1.4.0"
         const val composeUiTool = "androidx.compose.ui:ui-tooling:1.1.1"
         const val composeUiTest = "androidx.compose.ui:ui-test-manifest:1.1.1"
+    }
+
+    object External{
+        const val koinCore = "io.insert-koin:koin-core:3.1.5"
+        const val koinAndroid = "io.insert-koin:koin-android:3.1.5"
+        const val koinCompose = "io.insert-koin:koin-androidx-compose:3.1.5"
     }
 
     object Test {

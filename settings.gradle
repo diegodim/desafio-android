@@ -15,3 +15,9 @@ dependencyResolutionManagement {
 rootProject.name = "desafio-android"
 include ':app'
 include ':core:ui_kit'
+include ':core:commons'
+include ':core:intent'
+include ':data_local'
+include ':data_remote'
+include ':repository'
+include ':core:core'

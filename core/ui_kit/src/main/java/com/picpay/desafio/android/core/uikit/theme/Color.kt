@@ -1,4 +1,4 @@
-package com.picpay.desafio.android.ui.theme
+package com.picpay.desafio.android.core.uikit.theme
 
 import androidx.compose.ui.graphics.Color
 

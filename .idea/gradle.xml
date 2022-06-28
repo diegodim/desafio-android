@@ -13,7 +13,13 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/commons" />
+            <option value="$PROJECT_DIR$/core/core" />
+            <option value="$PROJECT_DIR$/core/intent" />
             <option value="$PROJECT_DIR$/core/ui_kit" />
+            <option value="$PROJECT_DIR$/data_local" />
+            <option value="$PROJECT_DIR$/data_remote" />
+            <option value="$PROJECT_DIR$/repository" />
           </set>
         </option>
       </GradleProjectSettings>
