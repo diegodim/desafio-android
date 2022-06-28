@@ -18,6 +18,8 @@ dependencies {
 
     api(external.koinAndroid)
     api(external.koinCompose)
+    api(android.coroutines)
+
     testImplementation(test.jUnit)
 
     androidTestImplementation(androidTest.jUnit)

@@ -11,8 +11,20 @@ dependencies {
     val test = Dependecies.Test
     val androidTest = Dependecies.AndroidTest
     val core = Dependecies.Modules.Core
+    val features = Dependecies.Modules.Features
+    val external = Dependecies.External
 
     implementation(project(core.uiKit))
+
+    implementation(project(features.contacts))
+
+    api(android.navigationCommon)
+    api(android.navigation)
+    api(android.navigationAnimation)
+
+    implementation(external.koinAndroid)
+    implementation(external.koinCompose)
+
     testImplementation(test.jUnit)
     androidTestImplementation(androidTest.jUnit)
     androidTestImplementation(androidTest.espressoCore)
