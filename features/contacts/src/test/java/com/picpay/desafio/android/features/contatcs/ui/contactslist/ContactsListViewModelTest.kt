@@ -4,8 +4,8 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.picpay.desafio.android.domain.contactsusecase.model.ContactModel
 import com.picpay.desafio.android.domain.contactsusecase.usecase.GetContactsUseCase
 import com.picpay.desafio.android.domain.contactsusecase.usecase.RefreshContactsUseCase
-import com.picpay.desafio.android.features.contatcs.ContactsFactory.CONTACTS
-import com.picpay.desafio.android.features.contatcs.ContactsFactory.CONTACT_1
+import com.picpay.desafio.android.features.contatcs.ContactsFactory.CONTACTS_MODEL
+import com.picpay.desafio.android.features.contatcs.ContactsFactory.CONTACT_MODEL_1
 import com.picpay.desafio.android.features.contatcs.data.mapper.mapFromDomain
 import com.picpay.desafio.android.features.contatcs.ui.contactslist.ContactsListViewAction.Navigate
 import io.mockk.*
@@ -47,7 +47,7 @@ class ContactsListViewModelTest {
     fun `WHEN dispatch Navigate_Contact action, navigate MUST be called`() {
         coEvery { navigation.navigateToContactDetails(any()) } returns Unit
 
-        action(Navigate.Contact(CONTACT_1.mapFromDomain()))
+        action(Navigate.Contact(CONTACT_MODEL_1.mapFromDomain()))
 
         verify(exactly = 1) { navigation.navigateToContactDetails(any()) }
     }
@@ -66,7 +66,7 @@ class ContactsListViewModelTest {
 
         action(ContactsListViewAction.Get.ContactList)
 
-        Assert.assertEquals(viewModel.viewState.contactList, CONTACTS.mapFromDomain())
+        Assert.assertEquals(viewModel.viewState.contactList, CONTACTS_MODEL.mapFromDomain())
         Assert.assertNull(viewModel.viewState.unexpectedError)
         Assert.assertFalse(viewModel.viewState.isLoading)
     }
@@ -79,7 +79,7 @@ class ContactsListViewModelTest {
 
         action(ContactsListViewAction.Get.ContactList)
 
-        Assert.assertEquals(viewModel.viewState.contactList, CONTACTS.mapFromDomain())
+        Assert.assertEquals(viewModel.viewState.contactList, CONTACTS_MODEL.mapFromDomain())
         Assert.assertEquals(viewModel.viewState.unexpectedError, error)
         Assert.assertFalse(viewModel.viewState.isLoading)
     }
@@ -112,7 +112,7 @@ class ContactsListViewModelTest {
         every {
             getContactsUseCase.invoke(onFailure = any(), onSuccess = captureLambda())
         } answers {
-            lambda<(List<ContactModel>) -> Unit>().invoke(CONTACTS)
+            lambda<(List<ContactModel>) -> Unit>().invoke(CONTACTS_MODEL)
         }
     }
 

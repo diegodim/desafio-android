@@ -1,7 +1,7 @@
-package com.picpay.desafio.android.features.contatcs
+package com.picpay.desafio.android.data_remote
 
+import com.picpay.desafio.android.data_remote.model.contacts.ContactResponse
 import com.picpay.desafio.android.domain.contactsusecase.model.ContactModel
-import com.picpay.desafio.android.features.contatcs.data.model.ContactBinding
 
 object ContactsFactory {
 
@@ -21,20 +21,20 @@ object ContactsFactory {
 
     val CONTACTS_MODEL = listOf(CONTACT_MODEL_1, CONTACT_MODEL_2)
 
-    val CONTACT_BINDING_1 = ContactBinding(
+    val CONTACT_RESPONSE_1 = ContactResponse(
         id = 1,
         name = "Jonh Doe",
         username = "JDoe",
         img = ""
     )
 
-    val CONTACT_BINDING_2 = ContactBinding(
+    val CONTACT_RESPONSE_2 = ContactResponse(
         id = 2,
         name = "Jonh Does",
         username = "JDoes",
-        img = ""
+        img = null
     )
 
-    val CONTACTS_BINDING = listOf(CONTACT_BINDING_1, CONTACT_BINDING_2)
+    val CONTACTS_RESPONSE = listOf(CONTACT_RESPONSE_1, CONTACT_RESPONSE_2)
 
 }
