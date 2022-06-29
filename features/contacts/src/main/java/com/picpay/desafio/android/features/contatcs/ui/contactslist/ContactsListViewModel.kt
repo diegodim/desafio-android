@@ -9,18 +9,20 @@ import com.picpay.desafio.android.domain.contactsusecase.usecase.GetContactsUseC
 import com.picpay.desafio.android.features.contatcs.data.mapper.mapFromDomain
 import com.picpay.desafio.android.features.contatcs.ui.contactslist.ContactsListViewAction.*
 import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
 class ContactsListViewModel : ViewModel(), KoinComponent {
     var viewState by mutableStateOf(ContactsListViewState())
         private set
 
-    val getContactsUseCase: GetContactsUseCase by useCase()
+    private val navigation: ContactsListNavigation by inject()
+    private val getContactsUseCase: GetContactsUseCase by useCase()
 
     fun dispatchViewAction(viewAction: ContactsListViewAction) {
         when (viewAction) {
             is Get.ContactList -> getContactList()
-            is Navigate.Contact -> Unit
-            is Clear.UnexpectedError -> viewState = viewState.copy(unexpectedError = null)
+            is Navigate.Contact -> navigation.navigateToContactDetails(viewAction.contact)
+            is Clear.UnexpectedError -> clearUnexpectedError()
         }
     }
 
@@ -28,11 +30,16 @@ class ContactsListViewModel : ViewModel(), KoinComponent {
         viewState = viewState.copy(isLoading = true, unexpectedError = null)
         getContactsUseCase(
             onSuccess = { contactList ->
-                viewState = viewState.copy(contactList = contactList.mapFromDomain(), isLoading = false)
+                viewState =
+                    viewState.copy(contactList = contactList.mapFromDomain(), isLoading = false)
             },
-            onFailure = {throwable ->
+            onFailure = { throwable ->
                 viewState = viewState.copy(unexpectedError = throwable, isLoading = false)
             }
         )
+    }
+
+    private fun clearUnexpectedError() {
+        viewState = viewState.copy(unexpectedError = null)
     }
 }
