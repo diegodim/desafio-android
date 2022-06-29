@@ -10,7 +10,7 @@ import org.junit.Test
 class ContactBindingMapperTest{
 
     @Test
-    fun `Assert ContactBindingMapper is working`() {
+    fun `Assert ContactBindingMapper is mapping`() {
         Assert.assertEquals(CONTACTS_MODEL.mapFromDomain(), CONTACTS_BINDING)
         Assert.assertEquals(CONTACT_MODEL_1.mapFromDomain(), CONTACT_BINDING_1)
     }

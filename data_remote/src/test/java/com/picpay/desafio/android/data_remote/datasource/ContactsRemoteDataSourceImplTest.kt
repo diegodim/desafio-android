@@ -51,7 +51,6 @@ class ContactsRemoteDataSourceImplTest {
             Assert.assertEquals(result, Result.Success(CONTACTS_MODEL))
         }
 
-
     @Test
     fun `WHEN getContacts HAS failure MUST throw a exception`(): Unit =
         runBlocking {

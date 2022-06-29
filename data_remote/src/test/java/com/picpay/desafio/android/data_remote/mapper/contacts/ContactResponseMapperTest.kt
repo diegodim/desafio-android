@@ -10,7 +10,7 @@ import org.junit.Test
 class ContactResponseMapperTest{
 
         @Test
-        fun `Assert ContactResponseMapper is working`() {
+        fun `Assert ContactResponseMapper is mapping`() {
             Assert.assertEquals(CONTACTS_RESPONSE.mapToDomain(), CONTACTS_MODEL)
             Assert.assertEquals(CONTACT_RESPONSE_1.mapToDomain(), CONTACT_MODEL_1)
         }

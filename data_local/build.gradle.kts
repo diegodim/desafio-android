@@ -21,6 +21,10 @@ dependencies {
     kapt(android.roomCompiler)
 
     testImplementation(test.jUnit)
+    testImplementation(test.mockK)
+    testImplementation(test.coreTest)
+    testImplementation(test.coroutinesTest)
+    testImplementation(test.coroutinesAndroid)
 
     androidTestImplementation(androidTest.jUnit)
     androidTestImplementation(androidTest.espressoCore)

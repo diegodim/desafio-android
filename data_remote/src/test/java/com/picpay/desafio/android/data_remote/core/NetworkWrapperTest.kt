@@ -40,7 +40,7 @@ class NetworkWrapperTest {
         networkWrapper { response }
     }
 
-    @Test(expected = BadRequestException::class)
+    @Test
     fun `WHEN networkWrapper has BAD REQUEST request MUST throw the BadRequestException`(): Unit = runBlocking {
         val response = Response.error<Unit>(BAD_REQUEST, byteArrayOf().toResponseBody())
 
