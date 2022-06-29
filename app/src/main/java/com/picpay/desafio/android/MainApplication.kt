@@ -2,6 +2,9 @@ package com.picpay.desafio.android
 
 import android.app.Application
 import com.picpay.desafio.android.core.intent.di.intentModule
+import com.picpay.desafio.android.data_remote.di.dataRemoteModule
+import com.picpay.desafio.android.features.contatcs.di.contactsModule
+import com.picpay.desafio.android.repository.di.repositoryModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -13,7 +16,10 @@ class MainApplication : Application() {
         super.onCreate()
         startKoin {
             modules(
-                intentModule
+                intentModule,
+                contactsModule,
+                dataRemoteModule,
+                repositoryModule
             ).androidContext(applicationContext).androidLogger()
         }
     }

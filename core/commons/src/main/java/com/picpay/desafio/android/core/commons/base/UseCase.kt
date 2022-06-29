@@ -1,14 +1,15 @@
 package com.picpay.desafio.android.core.commons.base
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.cancelChildren
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 abstract class UseCase<in Params, out T>(private val scope: CoroutineScope) {
 
-    abstract suspend fun run(params: Params?): Result<T>
+    abstract suspend fun run(params: Params?): Flow<Result<T>>
 
     operator fun invoke(
         params: Params? = null,
@@ -16,14 +17,7 @@ abstract class UseCase<in Params, out T>(private val scope: CoroutineScope) {
         onSuccess: (T) -> Unit = {}
     ) {
         scope.launch(handleError(onFailure)) {
-            run(params).fold(
-                onSuccess = {
-                    onSuccess(it)
-                },
-                onFailure = {
-                    onFailure(it)
-                }
-            )
+            run(params).collectResult(onSuccess = onSuccess, onFailure = onFailure)
         }
     }
 
@@ -33,3 +27,4 @@ abstract class UseCase<in Params, out T>(private val scope: CoroutineScope) {
 
     fun cancel() = scope.coroutineContext.cancelChildren()
 }
+

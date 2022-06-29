@@ -16,7 +16,7 @@ dependencies {
 
     implementation(project(core.uiKit))
 
-    implementation(project(features.contacts))
+    api(project(features.contacts))
 
     api(android.navigationCommon)
     api(android.navigation)

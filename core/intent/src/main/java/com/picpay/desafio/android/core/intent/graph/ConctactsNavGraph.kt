@@ -6,7 +6,8 @@ import androidx.navigation.compose.navigation
 import com.google.accompanist.navigation.animation.composable
 import com.picpay.desafio.android.core.intent.destination.ContactsDestination
 import com.picpay.desafio.android.core.intent.destination.Destination
-import com.picpay.desafio.android.features.contatcs.ui.contacts_list.ContactsListScreen
+import com.picpay.desafio.android.features.contatcs.ui.contactslist.ContactsListScreen
+import org.koin.androidx.compose.getViewModel
 
 @ExperimentalAnimationApi
 fun NavGraphBuilder.addContactsNavGraph() {
@@ -23,6 +24,6 @@ fun NavGraphBuilder.addContactList() {
     composable(
         route = ContactsDestination.List.createRoute()
     ) {
-        ContactsListScreen()
+        ContactsListScreen(getViewModel())
     }
 }

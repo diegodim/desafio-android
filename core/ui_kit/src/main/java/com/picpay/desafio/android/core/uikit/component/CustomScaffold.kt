@@ -4,7 +4,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
@@ -27,21 +27,15 @@ fun CustomScaffold(
     val systemUiController = rememberSystemUiController()
     systemUiController.setStatusBarColor(color = backgroundColor, darkIcons = iconStatusBarDark)
 
-    Box(
+    Column(
         modifier = modifier
             .background(backgroundColor)
-            .fillMaxSize()
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.Top
     ) {
-
-        Column(
-            modifier = Modifier
-                .align(Alignment.TopCenter)
-                .fillMaxSize()
-        ) {
-            content?.invoke(this)
-        }
+        content?.invoke(this)
         AnimatedVisibility(
-            modifier = Modifier.align(Alignment.TopCenter),
+            modifier = Modifier.align(Alignment.CenterHorizontally),
             visible = isLoading,
             enter = fadeIn(),
             exit = fadeOut()

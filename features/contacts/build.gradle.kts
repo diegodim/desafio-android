@@ -12,8 +12,11 @@ dependencies {
     val test = Dependecies.Test
     val androidTest = Dependecies.AndroidTest
     val core = Dependecies.Modules.Core
+    val useCase = Dependecies.Modules.UseCase
 
     implementation(project(core.core))
+    implementation(project(useCase.contacts))
+
     testImplementation(test.jUnit)
     androidTestImplementation(androidTest.jUnit)
     androidTestImplementation(androidTest.espressoCore)
