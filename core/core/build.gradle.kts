@@ -7,11 +7,11 @@ plugins {
 apply("../../android-common.gradle")
 
 dependencies {
-    val android = Dependecies.Android
-    val test = Dependecies.Test
-    val androidTest = Dependecies.AndroidTest
-    val core = Dependecies.Modules.Core
-    val external = Dependecies.External
+    val android = Dependencies.Android
+    val test = Dependencies.Test
+    val androidTest = Dependencies.AndroidTest
+    val core = Dependencies.Modules.Core
+    val external = Dependencies.External
 
     api(project(core.uiKit))
     api(project(core.commons))

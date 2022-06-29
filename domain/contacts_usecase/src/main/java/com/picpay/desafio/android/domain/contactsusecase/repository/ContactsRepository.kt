@@ -6,4 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface ContactsRepository {
     suspend fun getContacts(): Flow<Result<List<ContactModel>>>
+    suspend fun refreshContacts(): Flow<Result<Unit>>
 }

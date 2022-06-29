@@ -4,9 +4,9 @@ plugins {
 }
 
 dependencies {
-    val core = Dependecies.Modules.Core
-    val external = Dependecies.External
-    val repository = Dependecies.Modules.Repository
+    val core = Dependencies.Modules.Core
+    val external = Dependencies.External
+    val repository = Dependencies.Modules.Repository
 
     implementation(project(core.commons))
     implementation(project(repository.repository))

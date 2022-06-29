@@ -1,4 +1,4 @@
-object Dependecies {
+object Dependencies {
     object Modules {
         object Core {
             const val uiKit = ":core:ui_kit"
@@ -12,21 +12,21 @@ object Dependecies {
         }
 
         object Data {
-            const val remote                    = ":data_remote"
-            const val local                     = ":data_local"
+            const val remote = ":data_remote"
+            const val local = ":data_local"
         }
 
         object Repository {
-            const val repository                = ":repository"
+            const val repository = ":repository"
         }
 
         object UseCase {
-            const val contacts                  = ":domain:contacts_usecase"
+            const val contacts = ":domain:contacts_usecase"
         }
     }
 
     object Android {
-        const val corektx = "androidx.core:core-ktx:1.8.0"
+        const val androidCoreKotlin = "androidx.core:core-ktx:1.8.0"
         const val composeUi = "androidx.compose.ui:ui:1.1.1"
         const val material = "androidx.compose.material:material:1.1.1"
         const val composeUiToolPreview = "androidx.compose.ui:ui-tooling-preview:1.1.1"
@@ -43,6 +43,9 @@ object Dependecies {
         const val navigationCommon = "androidx.navigation:navigation-common-ktx:2.4.1"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9"
         const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9"
+        const val roomRuntime = "androidx.room:room-runtime:2.4.2"
+        const val roomKotlin = "androidx.room:room-ktx:2.4.2"
+        const val roomCompiler = "androidx.room:room-compiler:2.4.2"
     }
 
     object External {

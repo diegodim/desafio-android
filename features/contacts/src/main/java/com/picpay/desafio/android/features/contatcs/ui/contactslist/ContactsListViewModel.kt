@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.picpay.desafio.android.core.delegate.useCase
 import com.picpay.desafio.android.domain.contactsusecase.usecase.GetContactsUseCase
+import com.picpay.desafio.android.domain.contactsusecase.usecase.RefreshContactsUseCase
 import com.picpay.desafio.android.features.contatcs.data.mapper.mapFromDomain
 import com.picpay.desafio.android.features.contatcs.ui.contactslist.ContactsListViewAction.*
 import org.koin.core.component.KoinComponent
@@ -17,6 +18,7 @@ class ContactsListViewModel : ViewModel(), KoinComponent {
 
     private val navigation: ContactsListNavigation by inject()
     private val getContactsUseCase: GetContactsUseCase by useCase()
+    private val refreshContactsUseCase: RefreshContactsUseCase by useCase()
 
     fun dispatchViewAction(viewAction: ContactsListViewAction) {
         when (viewAction) {
@@ -28,13 +30,21 @@ class ContactsListViewModel : ViewModel(), KoinComponent {
 
     private fun getContactList() {
         viewState = viewState.copy(isLoading = true, unexpectedError = null)
+        refreshContacts()
         getContactsUseCase(
             onSuccess = { contactList ->
                 viewState =
-                    viewState.copy(contactList = contactList.mapFromDomain(), isLoading = false)
+                    viewState.copy(contactList = contactList.mapFromDomain(), isLoading = contactList.isEmpty())
             },
             onFailure = { throwable ->
                 viewState = viewState.copy(unexpectedError = throwable, isLoading = false)
+            }
+        )
+    }
+    private fun refreshContacts(){
+        refreshContactsUseCase(
+            onSuccess = {
+                viewState = viewState.copy( isLoading = false)
             }
         )
     }

@@ -16,6 +16,12 @@ sealed class Result<out R> {
     }
 }
 
+suspend fun <R> Result<R>.onSuccess(onSuccess: suspend(R) -> Unit){
+    if(this is Result.Success){
+        onSuccess(this.data)
+    }
+}
+
 suspend fun <T> Flow<Result<T>>.collectResult(onSuccess: (T) -> Unit, onFailure: (Exception) -> Unit) {
     this.collect { result ->
         when(result){

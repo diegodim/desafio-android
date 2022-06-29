@@ -11,17 +11,18 @@ android {
 }
 
 dependencies {
-    val android = Dependecies.Android
-    val external = Dependecies.External
-    val test = Dependecies.Test
-    val androidTest = Dependecies.AndroidTest
-    val core = Dependecies.Modules.Core
-    val data = Dependecies.Modules.Data
-    val repository = Dependecies.Modules.Repository
+    val android = Dependencies.Android
+    val external = Dependencies.External
+    val test = Dependencies.Test
+    val androidTest = Dependencies.AndroidTest
+    val core = Dependencies.Modules.Core
+    val data = Dependencies.Modules.Data
+    val repository = Dependencies.Modules.Repository
 
     implementation(project(core.core))
     implementation(project(core.intent))
     implementation(project(data.remote))
+    implementation(project(data.local))
     implementation(project(repository.repository))
 
     testImplementation(test.jUnit)

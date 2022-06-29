@@ -4,8 +4,8 @@ plugins {
 }
 
 dependencies {
-    val external = Dependecies.External
-    val android = Dependecies.Android
+    val external = Dependencies.External
+    val android = Dependencies.Android
     api(external.koinCore)
     api(android.coroutinesCore)
 }

@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies{
-    val core = Dependecies.Modules.Core
+    val core = Dependencies.Modules.Core
 
     implementation(project(core.commons))
 }

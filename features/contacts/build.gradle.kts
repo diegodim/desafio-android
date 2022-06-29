@@ -8,11 +8,11 @@ plugins {
 apply("../../android-common.gradle")
 
 dependencies {
-    val android = Dependecies.Android
-    val test = Dependecies.Test
-    val androidTest = Dependecies.AndroidTest
-    val core = Dependecies.Modules.Core
-    val useCase = Dependecies.Modules.UseCase
+    val android = Dependencies.Android
+    val test = Dependencies.Test
+    val androidTest = Dependencies.AndroidTest
+    val core = Dependencies.Modules.Core
+    val useCase = Dependencies.Modules.UseCase
 
     implementation(project(core.core))
     implementation(project(useCase.contacts))
