@@ -1,8 +1,6 @@
 package com.picpay.desafio.android.repository.repository
 
 import com.picpay.desafio.android.core.commons.base.Result
-import com.picpay.desafio.android.core.commons.base.onSuccess
-import com.picpay.desafio.android.core.commons.base.runCatchingResult
 import com.picpay.desafio.android.domain.contactsusecase.model.ContactModel
 import com.picpay.desafio.android.domain.contactsusecase.repository.ContactsRepository
 import com.picpay.desafio.android.repository.datasource.local.ContactsLocalDataSource
@@ -18,13 +16,15 @@ class ContactsRepositoryImpl(
     override suspend fun getContacts(): Flow<Result<List<ContactModel>>> =
         contactsLocalDataSource.getContacts()
 
-    override suspend fun refreshContacts() = flow {
-        emit(
-            runCatchingResult {
-                contactsRemoteDataSource.getContacts().onSuccess {
-                    contactsLocalDataSource.insertContacts(it)
+    override suspend fun refreshContacts(): Flow<Result<Unit>> = flow {
+        contactsRemoteDataSource.getContacts().let {
+            when (it) {
+                is Result.Success -> {
+                    emit(Result.Success(Unit))
+                    contactsLocalDataSource.insertContacts(it.data)
                 }
+                is Result.Failure -> emit(Result.Failure(it.exception))
             }
-        )
+        }
     }
 }

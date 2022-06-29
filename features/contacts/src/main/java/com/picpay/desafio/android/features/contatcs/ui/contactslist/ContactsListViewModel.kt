@@ -29,22 +29,27 @@ class ContactsListViewModel : ViewModel(), KoinComponent {
     }
 
     private fun getContactList() {
-        viewState = viewState.copy(isLoading = true, unexpectedError = null)
         refreshContacts()
         getContactsUseCase(
             onSuccess = { contactList ->
                 viewState =
-                    viewState.copy(contactList = contactList.mapFromDomain(), isLoading = contactList.isEmpty())
+                    viewState.copy(contactList = contactList.mapFromDomain())
             },
             onFailure = { throwable ->
                 viewState = viewState.copy(unexpectedError = throwable, isLoading = false)
             }
         )
+
     }
+
     private fun refreshContacts(){
+        viewState = viewState.copy(isLoading = true, unexpectedError = null)
         refreshContactsUseCase(
             onSuccess = {
-                viewState = viewState.copy( isLoading = false)
+                viewState = viewState.copy(isLoading = false)
+            },
+            onFailure = { throwable ->
+                viewState = viewState.copy(unexpectedError = throwable, isLoading = false)
             }
         )
     }
