@@ -20,8 +20,8 @@ class ContactsRepositoryImpl(
         contactsRemoteDataSource.getContacts().let {
             when (it) {
                 is Result.Success -> {
-                    emit(Result.Success(Unit))
                     contactsLocalDataSource.insertContacts(it.data)
+                    emit(Result.Success(Unit))
                 }
                 is Result.Failure -> emit(Result.Failure(it.exception))
             }

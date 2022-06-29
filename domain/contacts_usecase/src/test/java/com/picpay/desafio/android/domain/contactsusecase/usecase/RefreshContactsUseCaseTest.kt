@@ -18,21 +18,21 @@ import org.junit.Test
 
 class RefreshContactsUseCaseTest {
     private lateinit var useCase: RefreshContactsUseCase
-    private val authRepository: ContactsRepository = mockk()
+    private val contactsRepository: ContactsRepository = mockk()
 
     @Before
     fun setup() {
         MockKAnnotations.init()
         useCase = RefreshContactsUseCase(
             CoroutineScope(Dispatchers.Unconfined),
-            authRepository
+            contactsRepository
         )
     }
 
     @Test
     fun `WHEN refreshContacts HAS success MUST call repository once and return a flow with success unit`(): Unit =
         runBlocking {
-            coEvery { authRepository.refreshContacts() } returns flowOf(
+            coEvery { contactsRepository.refreshContacts() } returns flowOf(
                 Result.Success(
                     Unit
                 )
@@ -40,7 +40,7 @@ class RefreshContactsUseCaseTest {
 
             val result = useCase.run(Unit)
 
-            coVerify(exactly = 1) { authRepository.refreshContacts() }
+            coVerify(exactly = 1) { contactsRepository.refreshContacts() }
             Assert.assertEquals(result.first(), Result.Success(Unit))
         }
 
@@ -48,11 +48,11 @@ class RefreshContactsUseCaseTest {
     fun `WHEN refreshContacts HAS failure MUST call repository once and return a flow with failure exception`(): Unit =
         runBlocking {
             val error = UnknownException()
-            coEvery { authRepository.refreshContacts() } returns flowOf(Result.Failure(error))
+            coEvery { contactsRepository.refreshContacts() } returns flowOf(Result.Failure(error))
 
             val result = useCase.run(Unit)
 
-            coVerify(exactly = 1) { authRepository.refreshContacts() }
+            coVerify(exactly = 1) { contactsRepository.refreshContacts() }
             Assert.assertEquals(result.first(), Result.Failure(error))
         }
 }
