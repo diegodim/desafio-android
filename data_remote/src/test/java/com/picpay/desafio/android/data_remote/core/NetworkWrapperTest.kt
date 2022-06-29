@@ -26,7 +26,6 @@ class NetworkWrapperTest {
 
     @Test
     fun `WHEN networkWrapper has SUCCESS response MUST return the data`(): Unit = runBlocking {
-
         val response = Response.success(200, CONTACTS_RESPONSE)
 
         val result = networkWrapper { response }
