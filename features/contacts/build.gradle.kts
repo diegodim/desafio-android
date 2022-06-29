@@ -18,9 +18,15 @@ dependencies {
     implementation(project(useCase.contacts))
 
     testImplementation(test.jUnit)
+    testImplementation(test.mockK)
+    testImplementation(test.coreTest)
+    testImplementation(test.coroutinesTest)
+    testImplementation(test.coroutinesAndroid)
+
     androidTestImplementation(androidTest.jUnit)
     androidTestImplementation(androidTest.espressoCore)
     androidTestImplementation(androidTest.composeUiTest)
+
     debugImplementation(android.composeUiTool)
     debugImplementation(android.composeUiTest)
 }

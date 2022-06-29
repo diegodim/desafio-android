@@ -26,9 +26,11 @@ dependencies {
     implementation(external.koinCompose)
 
     testImplementation(test.jUnit)
+
     androidTestImplementation(androidTest.jUnit)
     androidTestImplementation(androidTest.espressoCore)
     androidTestImplementation(androidTest.composeUiTest)
+
     debugImplementation(android.composeUiTool)
     debugImplementation(android.composeUiTest)
 }

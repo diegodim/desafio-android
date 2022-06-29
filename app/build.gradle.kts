@@ -26,9 +26,11 @@ dependencies {
     implementation(project(repository.repository))
 
     testImplementation(test.jUnit)
+
     androidTestImplementation(androidTest.jUnit)
     androidTestImplementation(androidTest.espressoCore)
     androidTestImplementation(androidTest.composeUiTest)
+
     debugImplementation(android.composeUiTool)
     debugImplementation(android.composeUiTest)
     debugImplementation(external.leakCanary)

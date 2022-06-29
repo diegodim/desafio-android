@@ -62,6 +62,11 @@ object Dependencies {
 
     object Test {
         const val jUnit = "junit:junit:4.13.2"
+        const val mockK                         = "io.mockk:mockk:1.12.3"
+        const val assertK                       = "com.willowtreeapps.assertk:assertk-jvm:0.24"
+        const val coreTest                      = "androidx.arch.core:core-testing:2.1.0"
+        const val coroutinesTest                = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0"
+        const val coroutinesAndroid             = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
     }
 
     object AndroidTest {

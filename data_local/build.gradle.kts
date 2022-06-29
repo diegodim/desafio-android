@@ -18,13 +18,14 @@ dependencies {
 
     implementation(android.roomRuntime)
     implementation(android.roomKotlin)
-
     kapt(android.roomCompiler)
 
     testImplementation(test.jUnit)
+
     androidTestImplementation(androidTest.jUnit)
     androidTestImplementation(androidTest.espressoCore)
     androidTestImplementation(androidTest.composeUiTest)
+
     debugImplementation(android.composeUiTool)
     debugImplementation(android.composeUiTest)
 }
