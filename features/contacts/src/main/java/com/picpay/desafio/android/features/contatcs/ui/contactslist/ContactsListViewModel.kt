@@ -39,7 +39,6 @@ class ContactsListViewModel : ViewModel(), KoinComponent {
                 viewState = viewState.copy(unexpectedError = throwable, isLoading = false)
             }
         )
-
     }
 
     private fun refreshContacts(){

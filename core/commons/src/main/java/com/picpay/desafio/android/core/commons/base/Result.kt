@@ -28,6 +28,7 @@ suspend fun <T> Flow<Result<T>>.collectResult(onSuccess: (T) -> Unit, onFailure:
         }
     }
 }
+
 inline fun <R> runCatchingResult(block: () -> R): Result<R> {
     return try {
         Result.Success(block())
