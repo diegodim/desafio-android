@@ -13,7 +13,5 @@ dependencies{
 
     testImplementation(test.jUnit)
     testImplementation(test.mockK)
-    testImplementation(test.coreTest)
     testImplementation(test.coroutinesTest)
-    testImplementation(test.coroutinesAndroid)
 }
