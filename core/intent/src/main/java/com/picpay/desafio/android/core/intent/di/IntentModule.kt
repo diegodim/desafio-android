@@ -9,4 +9,3 @@ import org.koin.dsl.module
 val intentModule = module {
     single { NavigationManager(CoroutineScope(SupervisorJob() + Dispatchers.Main)) }
 }
-
