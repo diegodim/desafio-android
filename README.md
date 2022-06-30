@@ -1,5 +1,7 @@
 # PicPay - Desafio Android
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=diegodim_desafio-android&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=diegodim_desafio-android)
+
 <img src="https://github.com/mobilepicpay/desafio-android/blob/master/desafio-picpay.gif" width="300"/>
 
 Um dos desafios de qualquer time de desenvolvimento é lidar com código legado e no PicPay isso não é diferente. Um dos objetivos de trazer os melhores desenvolvedores do Brasil é atacar o problema. Para isso, essa etapa do processo consiste numa proposta de solução para o desafio abaixo e você pode escolher a melhor forma de resolvê-lo, de acordo com sua comodidade e disponibilidade de tempo:
