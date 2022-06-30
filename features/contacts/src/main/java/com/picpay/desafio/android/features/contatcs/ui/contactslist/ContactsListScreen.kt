@@ -2,6 +2,9 @@ package com.picpay.desafio.android.features.contatcs.ui.contactslist
 
 
 import android.widget.Toast
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -40,7 +43,11 @@ fun Content(viewState: ContactsListViewState, action: (ContactsListViewAction) -
         backgroundColor = MaterialTheme.colors.primary,
         isLoading = viewState.isLoading
     ) {
-        List(contactList = viewState.contactList, onClick = { Navigate.Contact(it) })
+        List(
+            contactList = viewState.contactList,
+            onClick = { Navigate.Contact(it) },
+            canShowList = viewState.isLoading.not()
+        )
     }
     LaunchedEffect(viewState.unexpectedError) {
         if (viewState.unexpectedError != null) {
@@ -51,10 +58,16 @@ fun Content(viewState: ContactsListViewState, action: (ContactsListViewAction) -
 }
 
 @Composable
-private fun List(contactList: List<ContactBinding>, onClick: (ContactBinding) -> Unit) {
-    LazyColumn(modifier = Modifier
-        .wrapContentHeight()
-        .fillMaxWidth()) {
+private fun List(
+    contactList: List<ContactBinding>,
+    onClick: (ContactBinding) -> Unit,
+    canShowList: Boolean
+) {
+    LazyColumn(
+        modifier = Modifier
+            .wrapContentHeight()
+            .fillMaxWidth()
+    ) {
         item {
             Text(
                 modifier = Modifier.padding(start = Spacing.Large, top = Spacing.Huge),
@@ -70,7 +83,13 @@ private fun List(contactList: List<ContactBinding>, onClick: (ContactBinding) ->
             )
         }
         items(items = contactList, key = { it.id }) { contact ->
-            ContactListItem(contact = contact, onClick = onClick)
+            AnimatedVisibility(
+                visible = canShowList,
+                enter = fadeIn(),
+                exit = fadeOut()
+            ) {
+                ContactListItem(contact = contact, onClick = onClick)
+            }
         }
     }
 }
