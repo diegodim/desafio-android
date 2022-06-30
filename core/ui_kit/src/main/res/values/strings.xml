@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="content_contacts_title">Contatos</string>
+    <string name="content_contacts_username_formatter">\@%1$s</string>
+    <string name="error_contacts_unexpected">Ocorreu um erro. Tente novamente.</string>
+
+</resources>
