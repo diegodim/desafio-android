@@ -16,7 +16,6 @@ private val ColorPalette = darkColors(
 
 @Composable
 fun DesafioandroidTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
     MaterialTheme(
