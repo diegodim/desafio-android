@@ -8,8 +8,17 @@ plugins {
     id 'com.android.library' version '7.2.1' apply false
     id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
     id 'org.jetbrains.kotlin.jvm' version '1.6.10' apply false
+    id "org.sonarqube" version "3.4.0.2513"
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "diegodim_desafio-android"
+        property "sonar.organization", "diegodim"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
 }
