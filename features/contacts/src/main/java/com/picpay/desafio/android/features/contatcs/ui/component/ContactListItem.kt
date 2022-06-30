@@ -7,16 +7,18 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import com.picpay.desafio.android.core.uikit.R.string
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import com.picpay.desafio.android.core.uikit.theme.ColorDetail
-import com.picpay.desafio.android.core.uikit.theme.ColorWhite
+import androidx.compose.ui.platform.testTag
+import com.picpay.desafio.android.core.uikit.extension.getString
 import com.picpay.desafio.android.core.uikit.theme.Spacing
 import com.picpay.desafio.android.core.uikit.theme.Spacing.Companion.ExtraLarge
 import com.picpay.desafio.android.features.contatcs.data.model.ContactBinding
 import com.skydoves.landscapist.CircularReveal
 import com.skydoves.landscapist.glide.GlideImage
 
+const val TAG_CONTACT_IMAGE = "ContactListItemImage"
 @Composable
 fun ContactListItem(
     contact: ContactBinding,
@@ -26,10 +28,11 @@ fun ContactListItem(
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .clickable { onClick(contact) }
+            .clickable { onClick(contact) },
+        verticalAlignment = Alignment.CenterVertically
     ) {
         GlideImage(
-            modifier = Modifier
+            modifier = Modifier.testTag(TAG_CONTACT_IMAGE)
                 .padding(start = Spacing.Large, top = Spacing.Small, bottom = Spacing.Small)
                 .clip(CircleShape)
                 .size(size = ExtraLarge),
@@ -45,8 +48,7 @@ fun ContactListItem(
             horizontalAlignment = Alignment.Start
         ) {
             Text(
-                modifier = Modifier.padding(top = Spacing.Tiny),
-                text = "@${contact.username.lowercase()}",
+                text = string.content_contacts_username_formatter.getString(contact.username.lowercase()),
                 color = MaterialTheme.colors.onPrimary
             )
             Text(

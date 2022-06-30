@@ -27,6 +27,7 @@ dependencies {
     testImplementation(test.coroutinesAndroid)
 
     androidTestImplementation(androidTest.jUnit)
+    androidTestImplementation(test.coreTest)
     androidTestImplementation(androidTest.espressoCore)
     androidTestImplementation(androidTest.composeUiTest)
 

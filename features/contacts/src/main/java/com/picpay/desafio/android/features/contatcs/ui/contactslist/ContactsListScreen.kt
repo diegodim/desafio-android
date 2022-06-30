@@ -28,7 +28,7 @@ fun ContactsListScreen(viewModel: ContactsListViewModel) {
 }
 
 @Composable
-private fun Content(viewState: ContactsListViewState, action: (ContactsListViewAction) -> Unit) {
+fun Content(viewState: ContactsListViewState, action: (ContactsListViewAction) -> Unit) {
     LaunchedEffect(Unit) {
         action(Get.ContactList)
     }

@@ -13,8 +13,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.picpay.desafio.android.core.uikit.theme.ColorAccent
+
+const val TAG_SCAFFOLD_PROGRESS_INDICATOR = "ScaffoldProgressIndicator"
 
 @Composable
 fun CustomScaffold(
@@ -40,7 +43,10 @@ fun CustomScaffold(
             enter = fadeIn(),
             exit = fadeOut()
         ) {
-            CircularProgressIndicator(color = ColorAccent)
+            CircularProgressIndicator(
+                modifier = Modifier.testTag(TAG_SCAFFOLD_PROGRESS_INDICATOR),
+                color = ColorAccent
+            )
         }
     }
 }

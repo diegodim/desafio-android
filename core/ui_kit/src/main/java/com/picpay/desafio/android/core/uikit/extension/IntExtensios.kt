@@ -6,3 +6,5 @@ import androidx.compose.ui.res.stringResource
 @Composable
 fun Int.getString(): String = stringResource(this)
 
+@Composable
+fun Int.getString(vararg formatArgs: Any): String = stringResource(this, *formatArgs)
