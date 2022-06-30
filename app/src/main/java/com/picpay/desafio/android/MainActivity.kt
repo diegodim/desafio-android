@@ -13,11 +13,10 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import com.picpay.desafio.android.core.intent.core.AppNavigation
 import com.picpay.desafio.android.core.intent.core.NavigationCommand
 import com.picpay.desafio.android.core.intent.core.NavigationType
-import com.picpay.desafio.android.core.intent.core.AppNavigation
 import com.picpay.desafio.android.core.uikit.theme.DesafioandroidTheme
-import kotlinx.coroutines.flow.collect
 
 class MainActivity : ComponentActivity() {
 

@@ -7,7 +7,7 @@ import com.picpay.desafio.android.features.contatcs.ContactsFactory.CONTACT_MODE
 import org.junit.Assert
 import org.junit.Test
 
-class ContactBindingMapperTest{
+class ContactBindingMapperTest {
 
     @Test
     fun `Assert ContactBindingMapper is mapping`() {

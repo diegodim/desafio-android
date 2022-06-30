@@ -52,7 +52,9 @@ fun Content(viewState: ContactsListViewState, action: (ContactsListViewAction) -
 
 @Composable
 private fun List(contactList: List<ContactBinding>, onClick: (ContactBinding) -> Unit) {
-    LazyColumn(modifier = Modifier.wrapContentHeight().fillMaxWidth()) {
+    LazyColumn(modifier = Modifier
+        .wrapContentHeight()
+        .fillMaxWidth()) {
         item {
             Text(
                 modifier = Modifier.padding(start = Spacing.Large, top = Spacing.Huge),
@@ -67,7 +69,7 @@ private fun List(contactList: List<ContactBinding>, onClick: (ContactBinding) ->
                     .height(Spacing.Large)
             )
         }
-        items(items = contactList, key = {it.id}) { contact ->
+        items(items = contactList, key = { it.id }) { contact ->
             ContactListItem(contact = contact, onClick = onClick)
         }
     }

@@ -5,7 +5,7 @@ import com.picpay.desafio.android.features.contatcs.data.model.ContactBinding
 import com.picpay.desafio.android.features.contatcs.ui.contactslist.ContactsListViewState
 
 object ContactsFactory {
-    val CONTACT_IMAGE  = android.R.drawable.bottom_bar
+    val CONTACT_IMAGE = android.R.drawable.bottom_bar
     val CONTACT_BINDING_1 = ContactBinding(
         id = 1,
         name = "Jonh Doe",

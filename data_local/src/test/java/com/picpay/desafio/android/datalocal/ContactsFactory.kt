@@ -36,5 +36,4 @@ object ContactsFactory {
     )
 
     val CONTACTS_ENTITY = listOf(CONTACT_ENTITY_1, CONTACT_ENTITY_2)
-
 }

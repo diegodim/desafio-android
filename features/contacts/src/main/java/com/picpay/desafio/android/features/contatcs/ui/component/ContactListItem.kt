@@ -7,10 +7,10 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import com.picpay.desafio.android.core.uikit.R.string
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.testTag
+import com.picpay.desafio.android.core.uikit.R.string
 import com.picpay.desafio.android.core.uikit.extension.getString
 import com.picpay.desafio.android.core.uikit.theme.Spacing
 import com.picpay.desafio.android.core.uikit.theme.Spacing.Companion.ExtraLarge
@@ -19,6 +19,7 @@ import com.skydoves.landscapist.CircularReveal
 import com.skydoves.landscapist.glide.GlideImage
 
 const val TAG_CONTACT_IMAGE = "ContactListItemImage"
+
 @Composable
 fun ContactListItem(
     contact: ContactBinding,
@@ -32,7 +33,8 @@ fun ContactListItem(
         verticalAlignment = Alignment.CenterVertically
     ) {
         GlideImage(
-            modifier = Modifier.testTag(TAG_CONTACT_IMAGE)
+            modifier = Modifier
+                .testTag(TAG_CONTACT_IMAGE)
                 .padding(start = Spacing.Large, top = Spacing.Small, bottom = Spacing.Small)
                 .clip(CircleShape)
                 .size(size = ExtraLarge),

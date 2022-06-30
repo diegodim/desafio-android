@@ -34,30 +34,34 @@ class NetworkWrapperTest {
     }
 
     @Test(expected = UnknownException::class)
-    fun `WHEN networkWrapper has UNKNOWN failure MUST throw the UnknownException`(): Unit = runBlocking {
-        val response = Response.error<Unit>(500, byteArrayOf().toResponseBody())
+    fun `WHEN networkWrapper has UNKNOWN failure MUST throw the UnknownException`(): Unit =
+        runBlocking {
+            val response = Response.error<Unit>(500, byteArrayOf().toResponseBody())
 
-        networkWrapper { response }
-    }
+            networkWrapper { response }
+        }
 
-    @Test
-    fun `WHEN networkWrapper has BAD REQUEST request MUST throw the BadRequestException`(): Unit = runBlocking {
-        val response = Response.error<Unit>(BAD_REQUEST, byteArrayOf().toResponseBody())
+    @Test(expected = BadRequestException::class)
+    fun `WHEN networkWrapper has BAD REQUEST request MUST throw the BadRequestException`(): Unit =
+        runBlocking {
+            val response = Response.error<Unit>(BAD_REQUEST, byteArrayOf().toResponseBody())
 
-        networkWrapper { response }
-    }
+            networkWrapper { response }
+        }
 
     @Test(expected = NotFoundException::class)
-    fun `WHEN networkWrapper has NOT FOUND request MUST throw the NotFoundException`(): Unit = runBlocking {
-        val response = Response.error<Unit>(NOT_FOUND, byteArrayOf().toResponseBody())
+    fun `WHEN networkWrapper has NOT FOUND request MUST throw the NotFoundException`(): Unit =
+        runBlocking {
+            val response = Response.error<Unit>(NOT_FOUND, byteArrayOf().toResponseBody())
 
-        networkWrapper { response }
-    }
+            networkWrapper { response }
+        }
 
     @Test(expected = UnauthorizedException::class)
-    fun `WHEN networkWrapper has NOT AUTHORIZED request MUST throw the UnauthorizedException`(): Unit = runBlocking {
-        val response = Response.error<Unit>(NOT_AUTHORIZED, byteArrayOf().toResponseBody())
+    fun `WHEN networkWrapper has NOT AUTHORIZED request MUST throw the UnauthorizedException`(): Unit =
+        runBlocking {
+            val response = Response.error<Unit>(NOT_AUTHORIZED, byteArrayOf().toResponseBody())
 
-        networkWrapper { response }
-    }
+            networkWrapper { response }
+        }
 }

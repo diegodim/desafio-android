@@ -6,7 +6,6 @@ import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import com.picpay.desafio.android.core.uikit.R.string
-import com.picpay.desafio.android.features.contatcs.assertBackgroundColor
 import com.picpay.desafio.android.core.uikit.component.TAG_SCAFFOLD_PROGRESS_INDICATOR
 import com.picpay.desafio.android.core.uikit.theme.ColorPrimary
 import com.picpay.desafio.android.core.uikit.theme.DesafioandroidTheme
@@ -14,6 +13,7 @@ import com.picpay.desafio.android.features.contatcs.ContactsFactory.CONTACT_BIND
 import com.picpay.desafio.android.features.contatcs.ContactsFactory.CONTACT_BINDING_2
 import com.picpay.desafio.android.features.contatcs.ContactsFactory.VIEW_STATE_LIST
 import com.picpay.desafio.android.features.contatcs.ContactsFactory.VIEW_STATE_LOADING
+import com.picpay.desafio.android.features.contatcs.assertBackgroundColor
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

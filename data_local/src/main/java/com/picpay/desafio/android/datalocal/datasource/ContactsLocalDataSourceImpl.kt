@@ -17,9 +17,10 @@ class ContactsLocalDataSourceImpl(private val contactsDao: ContactsDao) : Contac
             runCatchingResult { contacts.mapToDomain() }
         }
 
-    override suspend fun insertContacts(contacts: List<ContactModel>):Result<Unit> = runCatchingResult {
-        contacts.mapFromDomain().forEach {
-            contactsDao.insertContact(it)
+    override suspend fun insertContacts(contacts: List<ContactModel>): Result<Unit> =
+        runCatchingResult {
+            contacts.mapFromDomain().forEach {
+                contactsDao.insertContact(it)
+            }
         }
-    }
 }

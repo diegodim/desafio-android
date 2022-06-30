@@ -27,4 +27,3 @@ abstract class UseCase<in Params, out T>(private val scope: CoroutineScope) {
 
     fun cancel() = scope.coroutineContext.cancelChildren()
 }
-

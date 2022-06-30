@@ -9,6 +9,4 @@ object ConverterFactoryProvider {
         val builder = GsonBuilder()
         return GsonConverterFactory.create(builder.create())
     }
-
-
 }
